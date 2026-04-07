@@ -64,7 +64,7 @@ modules:
             ARCH_MAKE_ARGS: LINUX64=1 X86_64=1
     build-commands:
       - make -C src -j $FLATPAK_BUILDER_N_JOBS NOGME=1 $ARCH_MAKE_ARGS
-      - install -D -m 755 -t $FLATPAK_DEST/bin bin/lsdl2srb2
+      - install -D -m 755 -t $FLATPAK_DEST/bin bin/srb2rvre
       - install -D -m 755 -t $FLATPAK_DEST/bin reveries.pk3
       - install -D -m 644 srb2.png $FLATPAK_DEST/share/icons/hicolor/256x256/apps/$FLATPAK_ID.png
       - install -D -m 755 reveries.sh $FLATPAK_DEST/bin/srb2reveries
@@ -73,12 +73,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/candelavla/srb2
-        tag: f6
-        commit: 08639692bb65896d0062270a63cb4aecbdc799c3
+        tag: f6a
+        commit: aef7775c8b10deb71b00362c14b65cfe4c014e45
       - type: script
         commands:
           - export SRB2WADDIR=/app/bin
-          - lsdl2srb2 "$@"
+          - srb2rvre "$@"
         dest-filename: reveries.sh
       - type: file
         path: io.github.srb2.rphys.desktop
